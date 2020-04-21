@@ -19,21 +19,26 @@
   */
   var Stack = function() {
 
+    var arr = [];
+
   // add an item to the top of the stack
     this.push = function(value) {
+      arr.push(value);
     };
 
   // remove an item from the top of the stack
     this.pop = function() {
+      arr.pop();
     };
 
   // return the number of items in the stack
     this.size = function() {
+      return arr.length;
     };
   
   // return the minimum value in the stack
     this.min = function() {
-
+      return Math.min(...arr);
     };
 
   };
