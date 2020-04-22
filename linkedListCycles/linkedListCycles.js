@@ -37,4 +37,16 @@ var Node = function(value) {
 
 var hasCycle = function(linkedList) {
   // TODO: implement me!
+  let hare = linkedList;
+  let tortoise = linkedList;
+
+  while(hare && tortoise && hare.next){
+  	hare = hare.next.next;
+  	tortoise = tortoise.next;
+
+  	if(hare === tortoise){
+  		return true;
+  	}
+  }
+  return false;
 };
