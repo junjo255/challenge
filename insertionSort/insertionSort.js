@@ -45,8 +45,46 @@ var testingTransform = function(array) {
   return transform;
 };
 
+var arr = testingTransform([3,2,3,6,1]);
+
 var insertionSort = function(array
 ) {
+
+		let swapped = true;
+
+		for(var lastSortedIndex = 0, currentIdx = lastSortedIndex + 1; lastSortedIndex < array.length - 1; lastSortedIndex++){
+			swapped = true;
+			currentIdx = lastSortedIndex + 1;
+			
+			while(currentIdx > 0 && swapped === true){
+				if(array[currentIdx].value < array[currentIdx - 1].value){
+					array.splice(currentIdx - 1, 0, array[currentIdx]);
+					array.splice(currentIdx + 1, 1);
+				}else{
+					swapped = false;
+				}
+				currentIdx = currentIdx -= 1;					
+			}
+		}
+
+
+
   // Your code goes here. Feel free to add helper functions if needed.
   return array;
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
