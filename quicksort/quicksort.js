@@ -12,4 +12,16 @@
 
 
 var quicksort = function(array) {
+	if(array.length <= 1) return array;
+
+	var pivot = array[0], left = [], right = [];
+	for(var i = 1; i < array.length; i++){
+		if(array[i] < pivot) left.push(array[i]);
+		else right.push(array[i]);
+
+		left = quicksort(left);
+		right = quicksort(right);
+		var sorted = left.concat(pivot, right);
+		return sorted;
+	}
 };
