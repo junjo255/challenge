@@ -40,7 +40,108 @@ var phoneDigitsToLetters = {
   9: 'WXYZ'
 };
 
+var n1 = {
+  letters: ["G", "H", "I"],
+  idx : -1
+};
+var n2 = {
+  letters: ["0"],
+  idx : -1
+};
+var n3 = {
+  letters: ["T", "U", "V"],
+  idx : -1
+};
+
+var n4 = {
+  letters: ["D", "E", "F"],
+  idx : -1
+};
+
+
+[{
+  letters: ["G", "H", "I"],
+  idx : -1
+},
+{
+  letters: ["0"],
+  idx : -1
+},{
+  letters: ["T", "U", "V"],
+  idx : -1
+},
+{
+  letters: ["D", "E", "F"],
+  idx : -1
+}]
+
+
+"325"
 
 var telephoneWords = function(digitString) {
   // TODO: return every combination that can be spelled on a phone with these digits
+  var arrOfObj = [];
+  var result = [];
+
+  // create an array of objects
+  digitString.split("").forEach(digit => {
+    var obj = {};
+    obj["letters"] = phoneDigitsToLetters[digit].split("");
+    obj["idx"] = -1;
+    arrOfObj.push(obj);
+  })
+ 
+// ____________________________________________________________
+
+  if(arrOfObj.length === 1){
+    result = arrOfObj[0].letters;
+  } else {
+    var nexted = false;
+    var done = false;
+    var permutation = [];
+
+    while(!done){
+      for(var i = arrOfObj.length - 1; i >= 0; i--){
+        var target = arrOfObj[i]
+        if(!nexted){
+          target.idx = target.idx + 1;
+          permutation.unshift(target.letters[target.idx]);
+          if(target.idx === target.letters.length - 1){
+            target.idx = -1;
+          }
+          if(target.idx !== -1){
+            nexted = true;
+          }
+        } else {
+          permutation.unshift(target.letters[target.idx]);
+        } 
+
+      }
+      if(!nexted){
+        done = true;
+      }  
+    }
+
+  }
+
+  console.log("hello")
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
