@@ -1,0 +1,134 @@
+
+/**
+ * input: array
+ * output: array of indices
+ * 
+ * [2, 11, 15, 7]
+ * 
+ * 9
+ * [0, 9] [1,8] [2,7] [3,6] [4,5]
+ * 
+ */
+
+// Brute Force
+const nums = [2, 11, 15, 7];
+const target = 9;
+
+function twoSums(arr, target){
+  let indices = [];
+
+  for(let i = 0; i < arr.length -1; i++){
+    for(let j = i + 1; j < arr.length; j++){
+      if(arr[i] + arr[j] === target){
+        indices.push(arr[i]);
+        indices.push(arr[j]);
+        if(indices){
+          return indices;
+        }
+      }
+    }
+  }
+  return indices;
+}
+
+// twoSums(nums, target)
+// O(N^2)
+// O(N)
+
+// Optimization 
+function tuSums(arr, target) {
+  let obj = {};
+  // let indices = [  ];
+
+  for(let i = 0; i < arr.length; i++){
+    //arr[i] = 2 @ i = 0 
+    var matchedVal = target - arr[i];
+    // matchedVal = 7
+
+    if(matchedVal in obj) {
+      return [obj[matchedVal, i]]
+    } else {
+      obj[matchedVal] = i
+    }
+    
+  }
+}
+
+tuSums(nums, target);
+/**
+ * Given an array of integers, return indices of the two numbers such that they
+ * add up to a specific target.
+ * 
+ * You may assume that each input would have exactly one solution, and you may not
+ * use the same element twice.
+ * Example: 
+ *    Given nums = [2, 11, 15, 7], target = 9,
+ *    Because nums[0] + nums[3] = 2 + 7 = 9,
+ *    return [0, 3].
+ *    
+ */
+
+
+/**
+ * After you've read. --> Either interviews reads it out to you, or you read on your own. 
+ * if you are reading on your own, read it out loud. 
+ * The first three things to put:
+ *    1. Input: Array of integers, target (val)
+ *    2. Output: indices of 2#s   [ind1, ind2]
+ *    3. Edge cases: 
+ *          - can I assume that we will have only positive numbers? 
+ *          - what if it's not a number in an arr
+ *          - I see that it's not sorted, can I assume that array will not be in order? 
+ *          - the length of the array? limit on how many numbers? 
+ * 
+ * Two ways of approaching:
+ *   1. chose this one 
+ *   2. didn't explain why you didn't go with this one. 
+ * 
+ *  Brute Force with time complexity of O(N^2)
+ */
+
+// nums = [2, 11, 15, 7]
+// i    =   0 , 1 ,2 , 3
+// j    =  1,  2, 3, 4
+
+// i = 0 
+// num2 = 2
+// j =.   1,2,3,4
+//      2, 11,15,7
+
+// Get confirmation!!
+
+const nums = [2, 11, 15, 7];
+const target = 9;
+
+function twoSums(arr, target){
+  let indices = [];
+
+  for(let i = 0; i < arr.length -1; i++){
+    for(let j = i + 1; j < arr.length; j++){
+      if(arr[i] + arr[j] === target){
+        indices.push(arr[i]);
+        indices.push(arr[j]);
+        if(indices){
+          return indices;
+        }
+      }
+    }
+  }
+  return indices;
+}
+
+// Interviewer is going to ask you: can you optimize this? 
+
+// You just went right in. 
+// Remember you can ask questions to get hints
+// e.g. I think using an object would help us optimize this method. What do you think? 
+
+// If NO CLUE:
+//   - So, I used an array to work on the brute force.
+//  - let me see if I can also use aray to optimize. 
+//  - [ ]
+//  
+// Interact 
+
