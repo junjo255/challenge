@@ -24,6 +24,78 @@ makeChange(1) === 1
 makeChange(2) === 2
 */
 
+
+
+/* 
+input - integer (total)
+output - integer (number of ways)
+edge cases : 
+	- can I assume we will only integers as parameter and if yes, will it only be whole numbers?
+
+I'm thinking whether it's best to hold the the values in an array. I think I'll go with that since we can keep track of each value by index.
+
+We will need a variable for number of different ways (solutions), object where keys are the number to match and value is how many variations, 
+
+*/
+
+// const coins = [{
+// 	1: 0
+// },
+// {
+// 	2: 0
+// },
+// {
+// 	5: 0
+// },
+// {
+// 	10: 0
+// },
+// {
+// 	20: 0
+// },
+// {
+// 	50: 0
+// },
+// {
+// 	100: 0
+// },
+// {
+// 	200: 0
+// }];
+
+// let memo = {
+// 	1: 1,
+// 	2: 2,
+// 	3: 2,		(3-2 = 1..  1 + 1)
+// 	4: 3,		(4-2 = 2..	1 + 2)
+// 	5: 4,		(5-5 = 0..  1 + 3) when it equals to 0, count it as 1 and get the value of the 1 number lower than current.
+// 	// 6: 5?,	(6-5 = 1..  (1 + 1) + 3)
+// 	// 7: 5?, 	(7-5 = 2..  (1 + 2) + 2)
+// 	// 8: 7?,	(8-5 = 3..	(1 + 2) + 2)
+// };
+
+/**
+create a function to call recursively if the length of the passed array is greater than 1.
+input - 1 array of relevent coin values.
+output - 1 array of relevent coin values without the one in the first index.
+variable to keep track of number of 
+it will increment the solutions variable whenever condition is met.
+**/
+
+
+const coins = {
+	1: 0,
+	2: 0,
+	5: 0,
+	10: 0,
+	20: 0,
+	50: 0,
+	100: 0,
+	200: 0
+}
+
+[1, 2, 5, 10, 20, 50, 100, 200]
+
 var makeChange = function(total) {
 
 };
