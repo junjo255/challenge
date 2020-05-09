@@ -39,12 +39,12 @@ We will need a variable for number of different ways (solutions), object where k
 */
 
 // const coins = [{
-// 	1: 0
-// },
+// 	1: 
 // {
 // 	2: 0
 // },
-// {
+// {0
+// },
 // 	5: 0
 // },
 // {
@@ -83,21 +83,116 @@ it will increment the solutions variable whenever condition is met.
 **/
 
 
-const coins = {
-	1: 0,
-	2: 0,
-	5: 0,
-	10: 0,
-	20: 0,
-	50: 0,
-	100: 0,
-	200: 0
-}
+// const coins = {
+// 	1: 0,
+// 	2: 0,
+// 	5: 0,
+// 	10: 0,
+// 	20: 0,
+// 	50: 0,
+// 	100: 0,
+// 	200: 0
+// }
 
-[1, 2, 5, 10, 20, 50, 100, 200]
+// [1, 2, 5, 10, 20, 50, 100, 200]
 
-var makeChange = function(total) {
 
+
+// let makeChange = (total) => {
+//     let count = 0;
+//     const coin = [1,2,3];
+
+//     const recurse = (sum, index) => {
+//          //
+//         if (sum === total) {
+//             console.log("count: " + (count + 1) + " index: " + index)
+//             count++;
+//         }
+
+//         if (sum < total) {
+//                 // 0   = 0 ;
+//             let i = index;
+//             while(i < coin.length) {
+//                 // 0  +   1    <= 4    i = 0
+//                 //
+//                  console.log("in while loop with sum " + sum + " with count: " + count + " index: " + index + " i: " + i)
+//               if (sum + coin[i] <= total) {     
+//                         // 0  +  1     , 1
+//                  console.log("about to recurse where sum(" + sum + ") + coin[i](" + coin[i] + ") is <= total")
+//                  console.log("recurse(" + (sum + coin[i]) + ", " + i + ")")
+//                   recurse(sum + coin[i], i)
+//               }
+//               console.log("i++ = " + (i + 1))
+//               i++
+//             }
+//         } else {
+//           console.log("pop off execution stack for (" + sum + "," + index + ")")
+//           return;
+//         }
+//         console.log("pop off execution stack for (" + sum + "," + index + ")")
+//     }
+
+//     recurse(0, 0)
+//     return count;
+// };
+// console.log(makeChange(4))
+
+// recurse(0, 0)
+// recurse(1, 0)
+// recurse(2, 0)
+// recurse(3, 0)
+// recurse(4, 0). count = 1 
+// recurse(2, 1)
+// recurse(4, 1). count = 2
+
+// recurse(3, 2)
+// 
+
+
+
+
+
+
+
+
+
+let makeChange = (total) => {
+    let count = 0;
+    const coin = [1,2,3];
+
+    const recurse = (sum, index) => {
+ 
+        if (sum === total) {
+            count++;
+        }
+
+        if (sum < total) {
+            let i = index;
+            while(i < coin.length) {
+              if (sum + coin[i] <= total) {     
+                  recurse(sum + coin[i], i)
+              }
+              i++
+            }
+        } else {
+          return;
+        }
+    }
+
+    recurse(0, 0)
+    return count;
 };
+console.log(makeChange(4))
+
+// recurse(0, 0)
+// recurse(1, 0)
+// recurse(2, 0)
+// recurse(3, 0)
+// recurse(4, 0). count = 1 
+// recurse(2, 1)
+// recurse(4, 1). count = 2
+
+// recurse(3, 2)
+// 
 
 
