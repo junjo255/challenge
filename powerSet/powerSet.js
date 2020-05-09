@@ -18,4 +18,27 @@
  */
 
 var powerSet = function(str) {
+	let result = [];
+
+	const recurse = (string, index) => {
+		if(!result.includes(string)){
+			result.push(string);
+		}
+
+		let i = index;
+		while(i < str.length){
+			recurse(string + )
+		}
+		i++
+	}
+
+	recurse("", 0)
+	return result;
 };
+
+console.log(powerSet("abc"));
+
+
+"jmpu"
+
+[ ,j, jm, jp, ju, jmp, jmu, jpu, jmpu, m, mp, mu, mpu, p, pu, u]
