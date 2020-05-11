@@ -25,3 +25,42 @@
  *    }
  * Answer: https://leetcode.com/explore/featured/card/top-interview-questions-easy/92/array/727/
  **/
+
+ /**
+ input - array
+ output - integer
+
+ we can do this 2 ways.  the most efficient is using the ES6 "new Set" to dedupe.
+
+ **/
+
+ const removeDuplicates = (array) => {
+ 	return [...new Set(array)].length;
+ }
+
+
+
+ /**
+ the second way we can do this is using the ES6 filter method
+ **/
+
+const removeDuplicates = (array) => {
+	return array.filter((item, idx, arr) => {
+		return arr.indexOf(item) === idx;
+	}).length;
+}
+
+
+
+
+ removeDuplicates([0,0,1,1,1,2,2,3,3,4]);
+
+
+
+
+
+
+
+
+
+

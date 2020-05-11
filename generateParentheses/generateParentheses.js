@@ -78,11 +78,13 @@ let generateParentheses = (n) => {
         console.log("in while loop with comb " + comb + " with combinations: " + combinations + "index: " + index + " i: " + i)
 				let currentParVal;
 				parList[i] === "(" ? currentParVal = 1 : currentParVal = -1;
-       
+       console.log("about to recurse where combinations.indexOf(comb + parList[i])(" + combinations.indexOf(comb + parList[i]) + ") and openClose(" + openClose + ") + currentParVal(" + currentParVal + ") >= 0" )
 				if(combinations.indexOf(comb + parList[i]) < 0 && openClose + currentParVal >= 0){
-          console.log("about to recurse where combinations.indexOf(comb + parList[i])(" + combinations.indexOf(comb + parList[i]) + ") and openClose(" + openClose + ") + currentParVal(" + currentParVal + ") >= 0" )
+          
           console.log("recurse(" + (comb + parList[i]) + ", " + i + ")")
+          console.log("before add " + openClose)
 					openClose += currentParVal;
+          console.log("after add " + openClose)
 					recurse(comb + parList[i], i);
 				}
         console.log("i++ = " + (i + 1))
@@ -99,6 +101,61 @@ let generateParentheses = (n) => {
 }
 
 generateParentheses(3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let generateParentheses = (n) => {
+
+	let combinations = [];
+
+
+
+	const recurse = (comb, left, right, index){
+		if(comb.length === n * 2){
+			combinations.push(comb);
+		}
+
+		while((left + right) > 0){
+			if()
+		}
+
+	}
+
+	recurse("", n, n, 0);
+	return combinations;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

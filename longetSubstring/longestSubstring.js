@@ -15,3 +15,17 @@
  *   Explanation: The answer is "wke", with the length of 3.
  *   Note that the answer must be a substring, "pwke" is a subsequence and not a substring.
  **/
+
+ const longestSubstring = (str) => {
+ 	let obj = {};
+
+ 	for(let i = 0; i < str.length; i++){
+ 		if(!obj[str[i]]){
+ 			obj[str[i]] = true;
+ 		}
+ 	}
+
+ 	return Object.keys(obj).length;
+ }
+
+ longestSubstring("abcabcbb")
