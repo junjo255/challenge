@@ -11,4 +11,29 @@
  * **Note: You may assume the string contain only lowercase letters.
  *
  * Answer: https://leetcode.com/explore/featured/card/top-interview-questions-easy/127/strings/881/
+
+
+
+
+input - string
+output - integer
+
  **/
+
+
+ const firstUnique = string => {
+ 	let unique;
+ 	let map = {};
+ 	let i = 0;
+
+ 	while(!unique) {
+ 		if(string.lastIndexOf(string[i]) === i && !map[string[i]]) {
+ 			unique = string[i];
+ 		} else {
+ 			map[string[i]] = 1;
+ 			i++
+ 		}
+ 	}
+
+ 	return i;
+ }
