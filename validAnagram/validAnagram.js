@@ -16,3 +16,21 @@
  *
  * Answer: https://leetcode.com/explore/featured/card/top-interview-questions-easy/127/strings/882/
  **/
+
+const validAnagram = (s, t) => {
+	let anagram = true;
+	var second = t.split('')
+	if(s.length !== second.length) {
+		return false;
+	}
+
+	for(var i = 0; i < s.length; i++) {
+		if(second.indexOf(s[i]) >= 0) {
+			second.splice(second.indexOf(s[i]), 1);
+		} else {
+			anagram = false;
+			break
+		}
+	}
+	return anagram;
+}

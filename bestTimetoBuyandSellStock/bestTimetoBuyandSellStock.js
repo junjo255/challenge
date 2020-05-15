@@ -24,4 +24,12 @@
  *    : 0 <= prices[i] <= 10 ^ 4
  *
  * Answer: https://leetcode.com/explore/featured/card/top-interview-questions-easy/92/array/564/
+
+		input - array
+		output - integer
+
+		
+
  **/
+
+
