@@ -67,5 +67,5 @@
  *       given aircraft.
  *       Shipping Route ID#2 from the forwardShippingRouteList requires 5000 miles travelled, and Shipping
  *       Route ID#4 from returnShippingRouteList also require 5000 miles travelled. Combined, they
- *       add up to 10,000 miles travelled. 
+ *       add up to 10,000 miles travelled.
  */
