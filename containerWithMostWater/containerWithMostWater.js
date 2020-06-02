@@ -14,3 +14,20 @@
  *    Input: [1,8,6,2,5,4,8,3,7]
  *    Output: 49
  */
+
+
+ const maxArea = height => {
+    let max = 0;
+    
+    for(let i = 0; i < height.length - 1; i++) {
+        for(let j = height.length - 1; j > i; j--) {
+            let width = j - i;
+            let highest = height[i] > height[j] ? height[j] : height[i];
+            if(width * highest > max) {
+                max = width * highest;
+            }
+        }
+    }
+    
+    return max;
+};

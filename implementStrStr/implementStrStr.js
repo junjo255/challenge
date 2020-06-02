@@ -15,3 +15,13 @@
  *    For the purpose of this problem, we will return 0 when needle is an empty string.
  *    This is consistent to C's strstr() and Java's indexOf().
  */
+
+ var strStr = function(haystack, needle) {
+    if(needle === "") {
+        return 0;
+    }
+    
+    return haystack.indexOf(needle)
+};
+
+strStr("hello", "ll")
