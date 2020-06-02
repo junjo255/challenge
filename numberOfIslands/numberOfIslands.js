@@ -20,3 +20,36 @@
 
     Output: 3
  */
+
+
+ var numIslands = function(grid) {
+    let islands = 0;
+    let landSpotted = false;
+    
+    function isConnected(y, x) {
+        let sidesConnected = 0;
+        if((grid[y-1][x] === 1 || undefined) || 
+           (grid[y][x+1] === 1 || undefined) ||
+           (grid[y+1][x] === 1 || undefined) ||
+           (grid[y][x-1] === 1 || undefined)) {
+            return true;
+        }    
+        return false;    
+    }
+    
+    for(let y = 0; y < grid.length; y++) {
+        for(let x = 0; x < grid[y].length; x++) {
+            if(grid[y][x] === 1) {
+                if(!landSpotted) {
+                    landSpotted = true;
+                    islands++;                    
+                }
+                
+                if(!isConnected(y, x)) {
+                    landSpotted = false;
+                }
+            }
+        }
+    }
+    return islands;
+};
