@@ -14,4 +14,17 @@
 
 var toFraction = function(number) {
   // Your code here
+  let multiplier = 1;
+  let isWholeNumber = false;
+  if(Number.isInteger(number)) {
+  	return Math.floor(number) + "/" + 1;
+  }
+
+  while(!isWholeNumber) {
+  	multiplier += 1;
+  	if((number * multiplier) % 1 === 0) {
+  		isWholeNumber = true;
+  	}
+  }
+  return (number * multiplier) + "/" + multiplier;
 };

@@ -55,4 +55,17 @@ var numbersToPlace = {
 
 Number.prototype.toEnglish = function () {
   // return my value as english words
+  let english = "";
+  let numArray = this.toString().split("");
+
+  for(let i = 0; i < numArray.length; i++) {
+    console.log(numbersToWords[numArray[i]])
+    console.log(i)
+    english+=numbersToWords[numArray[i]] + " "
+  }
+  return english
 };
+
+
+3943
+
