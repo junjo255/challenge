@@ -40,6 +40,19 @@ Tree.prototype.addChild = function(child) {
   */
 Tree.prototype.getClosestCommonAncestor = function(/*...*/
 ) {
+  const path1 = this.getAncestorPath(n1);
+  const path2 = this.getAncestorPath(n2);
+
+  if(path1 === null || path2 === null) return null;
+
+  let commonAncestor = null;
+
+  for(let i = 0; i < Math.min(path1.length, path2.length); i++) {
+    if(path1[i] === path2[i]) {
+      commonAncestor = path1[i];
+    }
+  }
+  return commonAncestor;
   // TODO: implement me!
 };
 
@@ -51,9 +64,21 @@ Tree.prototype.getClosestCommonAncestor = function(/*...*/
   * 3.) me.getAncestorPath(me) -> [me]
   * 4.) grandma.getAncestorPath(H R Giger) -> null
   */
-Tree.prototype.getAncestorPath = function(/*...*/
-) {
+Tree.prototype.getAncestorPath = function(search) {
   // TODO: implement me!
+  let ancestor = null, tempPath = [this];
+
+  (function recurse(currentNode) {
+    if(currentNode === search) {
+      ancestorPath = tempPath.slice();
+      return;
+    }
+    for(let i = 0; i < currentNode.children.length; i++) {
+      tempPath.push(currentNode.children[i]);
+      tempPath.pop();
+    }
+  })(this);
+  return ancestorPath;
 };
 
 /**
