@@ -11,4 +11,19 @@
 
 // Solved in O(n) time with O(1) memory
 var sumArray = function(array) {
+	let sum = 0;
+
+	for(let i = 0; i < array.length; i++) {
+		if(i === array.length -1 && array[i] < 0) {
+			return sum;
+		}
+
+		if(sum + array[i] < 0) {
+			sum = 0;
+		} else {
+			sum = sum + array[i];
+		}
+	}
+
+	return sum;
 };

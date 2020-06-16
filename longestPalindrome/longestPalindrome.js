@@ -7,4 +7,20 @@
 */
 
 var longestPalindrome = function (string) {
+	let head = 0;
+	let tail = string.length - 1;
+	let palindrome = false;
+
+	while(!palindrome && tail - head > 1) {
+		let selected = string.slice(head, tail + 1);
+		let reversed = selected.split("").reverse().join("");
+		console.log(`selected = ${selected} | reversed = ${reversed}`)
+
+		if(selected === reversed) {
+			palindrome = selected;
+		}
+		head++;
+		tail--
+	}
+	return palindrome
 };

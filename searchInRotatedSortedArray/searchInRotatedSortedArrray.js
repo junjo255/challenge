@@ -18,3 +18,14 @@
  Input: nums = [4,5,6,7,0,1,2], target = 3
  Output: -1
  */
+
+
+ var search = function(nums, target) {
+    let idx = -1;
+    nums.forEach((num, index) => {
+        if(num === target) {
+            idx = index;
+        }
+    });
+    return idx;
+};
