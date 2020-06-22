@@ -22,6 +22,11 @@
 
 var nthFibonacci = function (n) {
   // TODO: implement me!
+  if(n < 2) {
+  	return n;
+  }
+
+  return nthFibonacci(n - 1) + nthFibonacci(n - 2)
 };
 
 

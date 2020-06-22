@@ -1,6 +1,4 @@
 /**
- user profile image
- System made a post.
  Find the indices of all anagrams of a given word in a another word.
  For example: Find the indices of all the anagrams of AB in ABCDBACDAB
  (Answer: 0, 4, 8)

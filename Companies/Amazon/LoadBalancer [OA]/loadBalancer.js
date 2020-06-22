@@ -1,6 +1,7 @@
 /**
  Load Balancer ⭐⭐ Medium
- Given an array containing only positive integers, return if you can pick two integers from the array which cuts the array into three pieces such that the sum of elements in all pieces is equal.
+ Given an array containing only positive integers, return if you can pick two integers from the array which cuts the
+ array into three pieces such that the sum of elements in all pieces is equal.
 
  Example 1:
      Input:  array = [2, 4, 5, 3, 3, 9, 2, 2, 2]
@@ -35,3 +36,4 @@
  	}
  	return balanced;
  }
+
