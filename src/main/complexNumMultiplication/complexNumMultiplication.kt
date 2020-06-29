@@ -1,3 +1,5 @@
+package main.complexNumMultiplication
+
 /**
     537. Complex Number Multiplication
 
@@ -21,3 +23,26 @@
     range of [-100, 100]. And the output should be also in this form.
     Accepted
  */
+
+fun main() {
+    val reg = "\\+|i".toRegex()
+
+    println("1+1i".split(reg))
+    println(complexNumMultiply("1+1i","1+1i"))
+}
+
+fun complexNumMultiply(a: String, b: String): String =
+        a.let {
+            val aSplit = it.split("\\+|i".toRegex())
+            val bSplit = b.split("\\+|i".toRegex())
+
+            val aInt = aSplit[0].toInt()
+            val aImg = aSplit[1].toInt()
+            val bInt = bSplit[0].toInt()
+            val bImg = bSplit[1].toInt()
+
+            val intVal = aInt * bInt - aImg * bImg
+            val imgVal = aInt * bImg + aImg * bInt
+
+            return "$intVal+$imgVal" + "i"
+        }
