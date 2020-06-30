@@ -1,3 +1,5 @@
+package main.customSortString
+
 /**
     791. Custom Sort String
     S and T are strings composed of lowercase letters. In S, no letter occurs more than once.
@@ -24,3 +26,28 @@
     T has length at most 200.
     S and T consist of lowercase letters only.
  */
+
+fun main() {
+    println(customSortString("kqep", "pekeq"))
+}
+
+fun customSortString(S: String, T: String): String {
+    val tArr = T.toCharArray()
+    val tCount = tArr.groupBy { it }.mapValues { it.value.count() }
+    val sArr = S.toCharArray()
+
+    var sValidStr = ""
+
+    S.filter { it in tArr }.toCharArray().forEach { char ->
+        tCount.forEach { (k, v) ->
+            if (k == char && v > 1) {
+                (v downTo 2).forEach { _ ->
+                    sValidStr += char
+                }
+            }
+        }
+        sValidStr += char
+    }
+
+    return sValidStr + T.filterNot { it in sArr }
+}

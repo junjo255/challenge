@@ -1,3 +1,4 @@
+package main.generateParenthesis
 /**
  22. Generate Parenthesis
  Given n pairs of parentheses, write a function to
