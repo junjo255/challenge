@@ -38,9 +38,9 @@ fun recurse(
 
  if (sum < -maxLength/2) return
 
- if (str.length == maxLength) return
-
  if (str.length == maxLength && sum == 0) list.add(str)
+
+ if (str.length == maxLength) return
 
  recurse(list, "$str(", maxLength, sum-1)
  recurse(list, "$str)", maxLength, sum+1)
