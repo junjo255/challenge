@@ -21,3 +21,28 @@
  range of [-100, 100]. And the output should be also in this form.
  Accepted
  */
+
+ const complexMultiplication = (x, y) => {
+  let separate = [];
+  let xSplit = x.split("+");
+  let ySplit = y.split("+");
+
+  xSplit[1] = xSplit[1].slice(0,-1);
+  ySplit[1] = ySplit[1].slice(0,-1);
+  separate.push(xSplit, ySplit);
+
+  const calculate = arr => {
+    let one = arr[0][0] * arr[1][0];
+    let two = (arr[0][0] * arr[1][1]) + (arr[0][1] * arr[1][0]) + "i";
+    let three = (arr[0][1] * arr[1][1]) * -1;
+
+    return `${one + three} + ${two}`    
+  }
+
+  return calculate(separate)
+}
+
+complexMultiplication("1+-1i", "1+-1i")
+
+
+

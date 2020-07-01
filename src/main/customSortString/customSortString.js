@@ -24,3 +24,34 @@
  T has length at most 200.
  S and T consist of lowercase letters only.
  */
+
+
+
+ var customSortString = function(S, T) {
+   let tArray = T.split("");
+   let sArray = S.split("");
+   let exist;
+
+   for(let i = 0; i < sArray.length; i++) {
+     let charIdx = tArray.indexOf(sArray[i]);
+     if(charIdx >= 0) {
+       exist = true;
+       tArray.splice(charIdx, 1);
+       while(exist) {
+         exist = false;
+         if(tArray.indexOf(sArray[i]) >= 0) {
+           exist = true;
+           tArray.splice(tArray.indexOf(sArray[i]), 1);
+           sArray.splice(i, 0, sArray[i]);
+           i++;
+         }
+       }
+     }else{
+       sArray.splice(i, 1);
+       i--;
+     }
+   };
+   return sArray.join("") + tArray.join("");
+};
+
+ customSortString("cbahjkl", "abcdsf")
