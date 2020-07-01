@@ -120,27 +120,27 @@ generateParentheses(3)
 
 
 
-let generateParentheses = (n) => {
-
-	let combinations = [];
-
-
-
-	const recurse = (comb, left, right, index){
-		if(comb.length === n * 2){
-			combinations.push(comb);
-		}
-
-		while((left + right) > 0){
-			if()
-		}
-
-	}
-
-	recurse("", n, n, 0);
-	return combinations;
-}
-
+// let generateParentheses = (n) => {
+//
+// 	let combinations = [];
+//
+//
+//
+// 	const recurse = (comb, left, right, index){
+// 		if(comb.length === n * 2){
+// 			combinations.push(comb);
+// 		}
+//
+// 		while((left + right) > 0){
+// 			if()
+// 		}
+//
+// 	}
+//
+// 	recurse("", n, n, 0);
+// 	return combinations;
+// }
+//
 
 
 
