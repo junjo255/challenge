@@ -50,3 +50,38 @@
  Since the character "a" does not repeat, it is not compressed. "bbbbbbbbbbbb" is replaced by "b12".
  Notice each digit has it's own entry in the array.
  */
+
+const compress = array => {
+	let compressed = [];
+	let current = "";
+	let counter = 0;
+
+	array.forEach((item, idx) => {
+		if(current === "") {
+			current = item;
+			counter++;
+		} else {
+			if(item === current && idx === array.length -1) {
+        counter ++;
+        compressed.push(current);
+				compressed.push(counter);
+			} else if(item === current) {
+        counter ++;
+      } else {
+				compressed.push(current);
+				compressed.push(counter);
+				current = item;
+				counter = 1;
+			}
+		}
+	})
+
+	return compressed;
+}
+
+
+
+
+
+
+

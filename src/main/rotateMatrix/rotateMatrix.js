@@ -46,4 +46,21 @@
 var rotateMatrix = function(matrix
 ) {
   // Your code here.
+  let rotated = [];
+  for(let i = 0; i < matrix.length; i++) {
+    rotated.push([]);
+  }
+
+  for(let i = matrix.length - 1; i >= 0; i--) {
+    for(let j = 0; j < matrix[i].length; j++) {
+      rotated[j].push(matrix[i][j])
+    }
+  }
+  return rotated;
 };
+
+rotateMatrix([ ['D',9,5,1],
+ ['E','A',6,2],
+ ['F','B',7,3],
+ ['G','C',8,4]
+ ])

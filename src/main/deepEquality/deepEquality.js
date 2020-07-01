@@ -12,4 +12,33 @@
   *
   */
 var deepEquals = function(apple, orange) {
+  let aProps = Object.getOwnPropertyNames(apple);
+  let bProps = Object.getOwnPropertyNames(orange);
+  let isEqual = true;
+
+  const checkIfObj = prop => {
+    if(prop !== 'object' && prop !== null) {
+      return false;
+    }
+    return true;
+  }
+
+  if(aProps.length !== bProps.length) {
+    return false;
+  }
+
+  for(let i = 0; i < aProps.length; i++) {
+    let propName = aProps[i];
+
+    if(!checkIfObj(apple[propName]) && !checkIfObj(orange[propName])) {
+      if(apple[propName] !== orange[propName]) {
+        isEqual === false;
+      }
+    } else {
+      
+    }
+  }
+
+  return isEqual;
+
 };

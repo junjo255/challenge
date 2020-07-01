@@ -17,5 +17,23 @@
 
 var rotatedArraySearch = function (rotated, target) {
   // Your code here:
+
+  return rotated.indexOf(target)
 };
+
+//or
+
+var rotatedArraySearch = function (rotated, target) {
+  // Your code here:
+  let index = null;
+
+  rotated.forEach((num, idx) => {
+  	if(num === target) {
+  		index = idx;
+  	}
+  });
+
+  return index;
+};
+
 

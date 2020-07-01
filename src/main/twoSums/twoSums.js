@@ -27,3 +27,25 @@ function tuSums(arr, target) {
 }
 
 tuSums(nums, target);
+
+
+
+
+const twoSums = (arr, target) => {
+  const obj = {};
+
+  for(let i = 0; i < arr.length; i++) {
+    const val = target - arr[i];
+
+    if(val in obj) {
+      return [obj[val], i];
+    } else {
+      obj[arr[i]] = i;
+    }
+  }
+}
+
+twoSums(nums, target)
+
+
+
