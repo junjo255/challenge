@@ -20,12 +20,11 @@ import java.util.*
 
 fun main() {
  generateParentheses(3).forEach{ println(it) }
-
 }
 
 fun generateParentheses(n: Int): List<String> {
- val result = LinkedList<String>()
- recurse( result, "", 2*n, 0)
+ val result = ArrayList<String>()
+ recurse(result, "", 2*n, 0)
  return result
 }
 
@@ -39,7 +38,7 @@ fun recurse(
 
  if (sum < -maxLength/2) return
 
- if ((str.length == maxLength) && sum == 0) list.add(str)
+ if (str.length == maxLength && sum == 0) list.add(str)
 
  if (str.length == maxLength) return
 
