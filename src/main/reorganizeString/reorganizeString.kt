@@ -1,3 +1,5 @@
+package main.reorganizeString
+
 /**
  767. Reorganize String
 

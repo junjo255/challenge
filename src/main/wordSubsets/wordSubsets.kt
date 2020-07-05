@@ -1,3 +1,4 @@
+package main.wordSubsets
 /**
  916. Word Subsets
  We are given two arrays A and B of words.
@@ -13,7 +14,6 @@
 
  Return a list of all universal words in A.  You can return
  the words in any order.
-
 
 
  Example 1:
@@ -38,3 +38,37 @@
  Output: ["facebook","leetcode"]
 
  */
+
+fun main() {
+    val A = arrayOf("amazon","apple","facebook","google","leetcode")
+//    val A = arrayOf("facebook")
+
+//    val B = arrayOf("ceo")
+//    val B = arrayOf("ec","oc","ceo")
+    val B = arrayOf("e","oo")
+    
+//    println(wordSubsets(A, B))
+    println()
+}
+
+fun wordSubsets(
+        A: Array<String>,
+        B: Array<String>
+): List<String> {
+    val result = mutableListOf<String>()
+
+    A.forEach { word ->
+        var reg = "^"
+        B.reduce { acc, string -> acc + string }.toList().distinct().forEach {
+            reg += "(?=.*$it)"
+
+        }
+        reg += ".*$"
+
+        if (word.contains(Regex(reg))) {
+            result.add(word)
+        }
+    }
+
+    return result
+}
