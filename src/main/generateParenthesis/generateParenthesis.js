@@ -13,3 +13,20 @@
  "()()()"
  ]
  */
+
+
+const generateParenthesis = n => {
+	let combinations = [];
+	let open = "(";
+  let close = ")";
+
+	const recurse = (comb) => {
+		let openCounter = 0;
+  	let closeCounter = 0;
+
+
+	}
+
+	recurse("");
+	return combinations;
+}
