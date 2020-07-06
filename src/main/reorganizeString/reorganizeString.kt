@@ -22,3 +22,26 @@ package main.reorganizeString
  S will consist of lowercase letters and have length in range [1, 500].
 
  */
+
+
+fun main() {
+ val map = "aabbbbbbbbcccccc".groupBy { it }.mapValues { it.value.count() }
+ val sortedMap = map.toSortedMap(compareByDescending { map[it] })
+
+ println(map)
+ println(sortedMap)
+}
+
+fun reorganizeString(
+        str: String
+): String {
+   val result = ""
+   val map = str.groupBy { it }.mapValues { it.value.count() }.toSortedMap()
+   val sortedMap = map.toSortedMap(compareByDescending { map[it] })
+
+//   sortedMap.forEach { (k,v) ->
+//       if ()
+//
+//   }
+
+}
