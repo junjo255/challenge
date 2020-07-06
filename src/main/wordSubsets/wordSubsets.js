@@ -38,3 +38,32 @@
  Output: ["facebook","leetcode"]
 
  */
+
+ const wordSubsets = (A, B) => {
+  B.forEach(item => {
+    let obj = {};
+    [...item].forEach(char => {
+      if(obj[char]) {
+        obj[char]++;
+      } else {
+        obj[char] = 1;
+      }
+    });
+
+    for(let key in obj) {
+      for(let i = 0; i < A.length; i++) {
+
+        let appearances = A[i].split("").filter(char => char === key).length;
+        if(appearances < obj[key]) {
+          A.splice(i, 1);
+          i--;
+        }
+      }
+    }
+  });
+  return A;
+};
+
+
+
+ 	
