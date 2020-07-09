@@ -29,3 +29,17 @@ The coins can form the following rows:
 Because the 4th row is incomplete, we return 3.
 
 **/
+
+
+const arrangeCoins = n => {
+  let counter = 0;
+  let sum = 0;
+
+  while(sum <= n) {
+    counter++;
+    sum += counter;
+  }
+  return counter - 1;
+}
+
+arrangeCoins(8)
