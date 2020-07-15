@@ -1,6 +1,5 @@
 package main.bst
 
-import main.bst.searchingInBST.Node
 /**
 https://bit.ly/3gDKc1J
 
@@ -40,7 +39,7 @@ the height of the right subtree and the left subtree is, at most, one.
 of the there are fully filled, except for perhaps the last level which can be filled
 from left to right.
 - The total number of nodes in a complete binary tree can be expressed as:
-2^h <= total number of nodes <= 2^(h+1) - 1
+2^h <= total number of nodes <= 2^( h+1) - 1
 
 - Full Binary Trees: A full or proper Binary Tree has the following characteristics:
 - Every node has 0 or 2 children. No node can have 1 child.
@@ -69,13 +68,112 @@ from left to right.
  - "left-right-root"
  */
 
-fun main() {
-	val tree = Node(4)
-	val keys = arrayOf(8, 15, 21, 3, 7, 2, 5, 10, 2, 3, 4, 6, 11)
-	for (key in keys) {
-		tree.insert(key)
-	}
-	val node = tree.find(4)!!
-	println("Node with value ${node.key} [left = ${node.left?.key}, right = ${node.right?.key}]")
-	node.delete(3)
+class Node (
+	   var key: Int,
+	   var left: Node? = null,
+	   var right: Node? = null
+) {
+
+    fun find(value: Int): Node? = when {
+	   this.key > value -> left?.find(value)
+	   this.key < value -> right?.find(value)
+	   else -> this
+    }
+
+    fun insert(value: Int) {
+	   if (value < this.key) {
+		  if (this.key == null) {
+			 this.left = Node(value)
+		  } else {
+			 this.left?.insert(value)
+		  }
+	   } else if (value > this.key) {
+		  if (this.right == null) {
+			 this.right = Node(value)
+		  } else {
+			 this.right?.insert(value)
+		  }
+	   }
+    }
+
+    fun delete(value:Int) {
+	   when {
+		  value > key -> search(value, this.right, this)
+		  value < key -> search(value, this.left, this)
+		  else -> removeNode(this, null)
+	   }
+    }
+
+    private fun search(
+		  value: Int,
+		  node: Node?,
+		  parent: Node?
+    ) {
+	   if (node === null) {
+		  println("value ($value) not present in the tree")
+		  return
+	   }
+
+	   when {
+		  value > node.key -> search(value, node.right, node)
+		  value < node.key -> search(value, node.left, node)
+		  value == node.key -> removeNode(node, parent)
+	   }
+    }
+
+    private fun removeNode(
+		  node: Node,
+		  parent: Node?
+    ) {
+	   node.left?.let { leftChild ->
+		  run {
+			 node.right?.let {
+				removeTwoChildNode(node)
+			 } ?: removeSingleChildNode(node, leftChild)
+		  }
+	   }
+    }
+
+    fun removeNoChildNode(node: Node, parent: Node?) {
+	   parent?.let { p ->
+		  if (node == p.left) {
+			 p.left = null
+		  } else if (node == p.right) {
+			 p.right = null
+		  }
+	   } ?: throw IllegalStateException(
+			 "Can not remove the root node without child nodes")
+
+    }
+
+    private fun removeTwoChildNode(node: Node) {
+	   val leftChild = node.left!!
+	   leftChild.right?.let {
+		  val maxParent = findParentOfMaxChild(leftChild)
+		  maxParent.right?.let {
+			 node.key = it.key
+			 maxParent.right = null
+		  } ?: throw IllegalStateException("Node with max child must have the right child!")
+
+	   } ?: run {
+		  node.key = leftChild.key
+		  node.left = leftChild.left
+	   }
+
+    }
+
+    private fun findParentOfMaxChild(n: Node): Node {
+	   return n.right?.let { r -> r.right?.let { findParentOfMaxChild(r) } ?: n }
+			 ?: throw IllegalArgumentException("Right child must be non-null")
+
+    }
+
+    private fun removeSingleChildNode(
+		  parent: Node,
+		  child: Node
+    ) {
+	   parent.key = child.key
+	   parent.left = child.left
+	   parent.right = child.right
+    }
 }
