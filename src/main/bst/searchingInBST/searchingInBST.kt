@@ -9,8 +9,9 @@ https://www.educative.io/courses/data-structures-coding-interviews-javascript/qV
  */
 
 object BST {
-
-    fun inOrderPrint(currentNode: Node) {
+    fun inOrderPrint(
+		  currentNode: Node
+    ) {
 	   currentNode.left?.let { this.inOrderPrint(it) }
 	   println(currentNode.key)
 	   currentNode.right?.let { this.inOrderPrint(it) }

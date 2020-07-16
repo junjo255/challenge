@@ -1,5 +1,7 @@
 package main.bst.findTheMinimumValueInBst
 
+import main.bst.Node
+
 /**
 	Find the Minimum Value in Binary Search Tree
 
@@ -29,3 +31,22 @@ package main.bst.findTheMinimumValueInBst
 		Sample Output #
 		2
  */
+fun findMin(
+	   node: Node
+): Int {
+    var currentNode = node
+
+    currentNode.left?.let { currentNode = currentNode.left!! }
+
+    return currentNode.key
+}
+
+fun main() {
+    val tree = Node(4)
+    val keys = arrayOf(2, 15, 21, 3, 7, 2, 5, 10, 2, 3, 4, 6, 11)
+    keys.forEach {
+	   tree.insert(it)
+    }
+
+    println(findMin(tree))  // output: 2
+}

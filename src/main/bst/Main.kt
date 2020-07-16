@@ -81,17 +81,17 @@ class Node (
     }
 
     fun insert(value: Int) {
-	   if (value < this.key) {
-		  if (this.key == null) {
-			 this.left = Node(value)
-		  } else {
-			 this.left?.insert(value)
-		  }
-	   } else if (value > this.key) {
+	   if (value > this.key) {
 		  if (this.right == null) {
 			 this.right = Node(value)
 		  } else {
 			 this.right?.insert(value)
+		  }
+	   } else if (value < this.key) {
+		  if (this.left == null) {
+			 this.left = Node(value)
+		  } else {
+			 this.left?.insert(value)
 		  }
 	   }
     }
@@ -131,8 +131,10 @@ class Node (
 				removeTwoChildNode(node)
 			 } ?: removeSingleChildNode(node, leftChild)
 		  }
+	   } ?: run {
+		  node.right?.let { rightChild -> removeSingleChildNode(node, rightChild) } ?: removeNoChildNode(node, parent)
 	   }
-    }
+	 }
 
     fun removeNoChildNode(node: Node, parent: Node?) {
 	   parent?.let { p ->
