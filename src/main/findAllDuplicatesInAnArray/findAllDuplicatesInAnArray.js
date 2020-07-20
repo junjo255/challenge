@@ -12,3 +12,17 @@ Input:
 Output:
 [2,3]
 **/
+
+const findAllDuplicates = arr => {
+  let container = [];
+  let duplicates = [];
+
+  arr.forEach(item => {
+    if(container.indexOf(item) > -1) {
+      duplicates.push(item);
+    } else {
+      container.push(item);
+    }
+  });
+  return duplicates;
+}

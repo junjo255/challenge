@@ -12,3 +12,26 @@ Output: 4
 Note:
 You may assume k is always valid, 1 ≤ k ≤ array's length.
 **/
+
+const kthLargestElementInArray = (arr, k) => {
+  let sorted = arr.sort((a,b) => a-b);
+  let j = 0;
+
+  for(let i = sorted.length - 1; i >= 0; i--) {
+    if(k === 1) {
+      return sorted[sorted.length - 1];
+      break;
+    } else {
+      if(j === k - 1) {
+        if(sorted[i] !== sorted[i+1]) {
+          return sorted[i];
+          break;
+        }
+      } else {
+        if(sorted[i] !== sorted[i+1]) {
+          j++;
+        }
+      }
+    }
+  }
+}
