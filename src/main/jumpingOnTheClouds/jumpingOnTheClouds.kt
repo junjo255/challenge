@@ -1,1 +1,3 @@
-https://www.hackerrank.com/challenges/jumping-on-the-clouds/problem
+package main.jumpingOnTheClouds
+
+//https://www.hackerrank.com/challenges/jumping-on-the-clouds/problem
