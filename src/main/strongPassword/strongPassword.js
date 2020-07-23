@@ -1,7 +1,7 @@
 let strongPassword = (n, password) => {
 	const checkDigit = item => !isNaN(item);
-	const checkLowercase = item => /^[a-zA-Z]+$/.test(item) && item === item.toLowerCase();
-	const checkUppercase = item => /^[a-zA-Z]+$/.test(item) && item === item.toUpperCase();
+	const checkLowercase = item => /^[a-z]+$/.test(item);
+	const checkUppercase = item => /^[A-Z]+$/.test(item);
 	const checkSpecial = item => /[!@#$%^&*()+-]/g.test(item);
 	const checker = [checkDigit, checkLowercase, checkUppercase, checkSpecial];
 	let missingCharacters = 6 - password.length;
