@@ -36,7 +36,7 @@ fun minimumNumber (
         password: String
 ): Int {
     var count = 0
-    val specialChar = Regex("[!@#$%^&*()\\-+]")
+    val specialChar = Regex("[!_@#$`%^/<>{}?\\[\\]&.*()\\-'+]")
     val lowerCase = Regex("[a-z]")
     val upperCase = Regex("[A-Z]")
     val numbers = Regex("[0-9]")
