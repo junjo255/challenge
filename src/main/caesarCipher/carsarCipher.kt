@@ -80,12 +80,10 @@ fun caesarCipher(
 
 				if ((indexOfChar + k) % (alphabet.length - 1) == 0) {
 					val newChar = alphabet[alphabet.length - 1]
-					alphabet[alphabet.length - 1]
-//					if (s[i] == s[i].toUpperCase()) newChar.toUpperCase() else newChar
+					if (s[i] == s[i].toUpperCase()) newChar.toUpperCase() else newChar
 				} else {
 					val newChar = alphabet[(indexOfChar + k) % (alphabet.length - 1)]
-//					if (s[i] == s[i].toUpperCase()) newChar.toUpperCase() else newChar
-					alphabet[(indexOfChar + k) % (alphabet.length - 1)]
+					if (s[i] == s[i].toUpperCase()) newChar.toUpperCase() else newChar
 				}
 			}
 		i++
