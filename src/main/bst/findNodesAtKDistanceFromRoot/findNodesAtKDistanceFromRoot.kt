@@ -31,3 +31,10 @@ k = 2
 Sample Output #
 [2,5,8,12]
  */
+fun main() {
+
+}
+
+fun findNodesAtKDistanceFromRoot() {
+
+}
